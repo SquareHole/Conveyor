@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Talista.Conveyor
+namespace Talista.Conveyor.Interfaces
 {
     public interface IConveyorBelt<T> where T : IConveyorContext
     {

@@ -17,9 +17,11 @@
         <e p="ConveyorBelt.cs" t="Include" />
         <e p="ConveyorCommand.cs" t="Include" />
         <e p="ConveyorContext.cs" t="Include" />
-        <e p="IConveyorBelt.cs" t="Include" />
-        <e p="IConveyorCommand.cs" t="Include" />
-        <e p="IConveyorContext.cs" t="Include" />
+        <e p="Interfaces" t="Include">
+          <e p="IConveyorBelt.cs" t="Include" />
+          <e p="IConveyorCommand.cs" t="Include" />
+          <e p="IConveyorContext.cs" t="Include" />
+        </e>
         <e p="MissingExpectedContextDataException.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -32,7 +34,7 @@
       </e>
       <e p="Talista.ConveyorTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="ContextTests.cs" t="Include" />
+        <e p="ConveyorTests.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -40,10 +42,12 @@
             </e>
           </e>
         </e>
+        <e p="Setup" t="Include">
+          <e p="TestCommand.cs" t="Include" />
+          <e p="TestContext.cs" t="Include" />
+          <e p="TestConveyor.cs" t="Include" />
+        </e>
         <e p="Talista.ConveyorTests.csproj" t="IncludeRecursive" />
-        <e p="TestCommand.cs" t="Include" />
-        <e p="TestContext.cs" t="Include" />
-        <e p="TestConveyor.cs" t="Include" />
       </e>
       <e p="TalistaLibraries.sln" t="IncludeFlat" />
     </e>

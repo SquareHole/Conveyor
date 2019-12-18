@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Talista.Conveyor.Interfaces;
 
 namespace Talista.Conveyor
 {

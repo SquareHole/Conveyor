@@ -1,7 +1,7 @@
 using System.Threading;
 using Talista.Conveyor;
 
-namespace Talista.ConveyorTests
+namespace Talista.ConveyorTests.Setup
 {
     class TestConveyor : ConveyorBelt<TestContext>
     {

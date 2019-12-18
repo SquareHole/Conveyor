@@ -1,7 +1,7 @@
 using System;
 using Talista.Conveyor;
 
-namespace Talista.ConveyorTests
+namespace Talista.ConveyorTests.Setup
 {
     class TestContext : ConveyorContext
     {

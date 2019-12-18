@@ -1,6 +1,4 @@
-using Microsoft.Extensions.Logging;
-
-namespace Talista.Conveyor
+namespace Talista.Conveyor.Interfaces
 {
     public interface IConveyorContext
     {

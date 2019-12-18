@@ -4,10 +4,12 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using Shouldly;
 using Talista.Conveyor;
+using Talista.ConveyorTests.Setup;
+using TestContext = Talista.ConveyorTests.Setup.TestContext;
 
 namespace Talista.ConveyorTests
 {
-    public class Tests
+    public class ConveyorTests
     {
         [Test]
         public void CanCreateContextInstance()

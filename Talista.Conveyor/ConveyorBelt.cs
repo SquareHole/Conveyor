@@ -38,7 +38,7 @@ namespace Talista.Conveyor
             if (_running)
             {
                 //The conveyor belt is already running, log and exit
-                _logger.LogInformation($"Run was called on {this.GetType().FullName}");
+                _logger.LogInformation($"Run was called on a running conveyor : {this.GetType().FullName}");
                 return;
             }
 

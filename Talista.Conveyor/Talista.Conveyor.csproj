@@ -2,6 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.0-alpha</PackageVersion>
+        <Title>Talista Conveyor</Title>
     </PropertyGroup>
 
     <ItemGroup>

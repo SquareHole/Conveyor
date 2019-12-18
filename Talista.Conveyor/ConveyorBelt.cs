@@ -30,6 +30,7 @@ namespace Talista.Conveyor
         public async ValueTask Register(IConveyorCommand<T> command)
         {
             command.Context = this.Context;
+            command.CancellationToken = _cancellationToken;
             await _writer.WriteAsync(command, _cancellationToken).ConfigureAwait(false);
         }
 

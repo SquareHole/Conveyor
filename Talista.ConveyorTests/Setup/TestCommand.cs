@@ -5,10 +5,6 @@ namespace Talista.ConveyorTests.Setup
 {
     class TestCommand : ConveyorCommand<TestContext>
     {
-        public TestCommand() : base()
-        {
-        }
-
         public override async ValueTask Run()
         { 
             await Task.Run(() =>

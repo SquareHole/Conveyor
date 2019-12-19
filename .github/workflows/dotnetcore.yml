@@ -19,5 +19,3 @@ jobs:
       run: dotnet test --configuration Release
     - name: Packing nuget package
       run: dotnet pack --configuration Release
-    - name: Publishing nuget package
-      run: dotnet nuget push "bin/Release/talista.conveyor.1.0.0.nupkg" --source "github"

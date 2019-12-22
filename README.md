@@ -8,8 +8,4 @@ var channel = Channel.CreateUnbounded<IConveyorCommand<T>>();
 
 The generic type is an instance of an `IConveyorContext`.
 
-`IConveyorCommand<T>` has a `Run()` method that runs Async with a `ValueTask` return type. 
-
-
-
-
+`IConveyorCommand<T>` has a `Run()` method that runs Async with a `ValueTask` return type.

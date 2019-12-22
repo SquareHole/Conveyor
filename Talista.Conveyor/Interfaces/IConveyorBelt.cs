@@ -6,6 +6,6 @@ namespace Talista.Conveyor.Interfaces
     {
         T Context { get; }
         ValueTask Register(IConveyorCommand<T> command);
-        ValueTask Run();
+        ValueTask Run(bool parallel = false);
     }
 }

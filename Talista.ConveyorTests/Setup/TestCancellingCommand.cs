@@ -4,13 +4,15 @@ using Talista.Conveyor;
 
 namespace Talista.ConveyorTests.Setup
 {
-    class TestCommand : ConveyorCommand<TestContext>
+    class TestCancellingCommand : ConveyorCommand<TestContext>
     {
+        private readonly CancellationTokenSource _cancellationTokenSource;
         private readonly int _delay;
         private readonly string _runResult;
 
-        public TestCommand(int delay = 0, string runResult = "")
+        public TestCancellingCommand(CancellationTokenSource cancellationTokenSource, int delay = 0, string runResult = "")
         {
+            _cancellationTokenSource = cancellationTokenSource;
             _delay = delay;
             _runResult = runResult;
         }
@@ -18,10 +20,11 @@ namespace Talista.ConveyorTests.Setup
         { 
             await Task.Run(() =>
             {
-                Thread.Sleep(_delay);
+                _cancellationTokenSource.CancelAfter(_delay);
+                Thread.Sleep(_delay * 2);
                 this.Context.Set("Identifier", this.Context.Identifier);
                 this.Context.TestResult += _runResult;
-            }, CancellationToken).ConfigureAwait(false);
+            }, CancellationToken);
         }
     }
 }

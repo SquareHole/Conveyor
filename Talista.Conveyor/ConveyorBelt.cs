@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -34,7 +36,19 @@ namespace Talista.Conveyor
             await _writer.WriteAsync(command, _cancellationToken).ConfigureAwait(false);
         }
 
-        public async ValueTask Run()
+        public async ValueTask Run(bool parallel = false)
+        {
+            if (parallel)
+            {
+                await RunInParallel();
+            }
+            else
+            {
+                await RunSequentially();
+            }
+        }
+
+        private async ValueTask RunSequentially()
         {
             if (_running)
             {
@@ -51,6 +65,33 @@ namespace Talista.Conveyor
                 var command = await _reader.ReadAsync(_cancellationToken);
                 await command.Run();
             }
+
+            _running = false;
+        }
+        
+        private async ValueTask RunInParallel()
+        {
+            if (_running)
+            {
+                //The conveyor belt is already running, log and exit
+                _logger.LogInformation($"Run was called on a running conveyor : {this.GetType().FullName}");
+                return;
+            }
+            
+            var commands = new List<Task>();
+
+            _logger.LogDebug("Conveyor started running.");
+            _running = true;
+            _writer.Complete();
+            while (await _reader.WaitToReadAsync(_cancellationToken))
+            {
+                var command = await _reader.ReadAsync(_cancellationToken);
+                _cancellationToken.ThrowIfCancellationRequested();
+                commands.Add(command.Run().AsTask());
+            }
+
+            var tasks = commands.Select(t => t).ToArray();
+             Task.WaitAll(tasks, _cancellationToken);
 
             _running = false;
         }

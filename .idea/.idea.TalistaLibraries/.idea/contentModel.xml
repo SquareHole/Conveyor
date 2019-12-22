@@ -43,6 +43,7 @@
           </e>
         </e>
         <e p="Setup" t="Include">
+          <e p="TestCancellingCommand.cs" t="Include" />
           <e p="TestCommand.cs" t="Include" />
           <e p="TestContext.cs" t="Include" />
           <e p="TestConveyor.cs" t="Include" />

@@ -7,5 +7,7 @@ namespace Talista.ConveyorTests.Setup
     {
         public Guid Identifier { get; set; } = Guid.NewGuid();
         public int TestTimeout { get; set; } = 10;
+
+        public string TestResult { get; set; }
     }
 }

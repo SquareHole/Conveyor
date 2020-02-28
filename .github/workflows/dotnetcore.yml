@@ -14,8 +14,10 @@ jobs:
       with:
         dotnet-version: 3.1.100
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Debug
     - name: Test with dotnet
-      run: dotnet test --configuration Release
+      run: dotnet test --configuration Debug
+    - name: Packing nuget package
+      run: dotnet pack --configuration Release      
     - name: Packing nuget package
       run: dotnet pack --configuration Release

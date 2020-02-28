@@ -103,13 +103,15 @@ namespace Talista.ConveyorTests
         {
             CancellationTokenSource cts = new CancellationTokenSource(20);
 
-            var context = new TestContext() { TestTimeout = 10 };
-            var command = new TestCommand(delay: 50);
+            var context = new TestContext() { TestTimeout = 50 };
+            var command = new TestCommand(delay: 150);
+            var command2 = new TestCommand(delay: 150);
             var conveyor = new TestConveyor(context, cts.Token);
 
             await conveyor.Register(command);
+            await conveyor.Register(command2);
 
-            Should.Throw<TaskCanceledException>(async () => await conveyor.Run().ConfigureAwait(false));
+            Should.Throw<TaskCanceledException>(async () => await conveyor.Run(true));
         }
     }
 }

@@ -16,8 +16,8 @@ namespace Talista.ConveyorTests.Setup
             _delay = delay;
             _runResult = runResult;
         }
-        public override async ValueTask Run()
-        { 
+        public override async Task Run()
+        {
             await Task.Run(() =>
             {
                 _cancellationTokenSource.CancelAfter(_delay);

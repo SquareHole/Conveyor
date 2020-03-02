@@ -29,14 +29,14 @@ namespace Talista.Conveyor
 
         public T Context { get; }
 
-        public async ValueTask Register(IConveyorCommand<T> command)
+        public async Task Register(IConveyorCommand<T> command)
         {
             command.Context = this.Context;
             command.CancellationToken = _cancellationToken;
             await _writer.WriteAsync(command, _cancellationToken).ConfigureAwait(false);
         }
 
-        public async ValueTask Run(bool parallel = false)
+        public async Task Run(bool parallel = false)
         {
             if (parallel)
             {
@@ -69,7 +69,7 @@ namespace Talista.Conveyor
             _running = false;
         }
 
-        private async ValueTask RunInParallel()
+        private async Task RunInParallel()
         {
             if (_running)
             {
@@ -87,7 +87,7 @@ namespace Talista.Conveyor
             {
                 var command = await _reader.ReadAsync(_cancellationToken);
                 _cancellationToken.ThrowIfCancellationRequested();
-                commands.Add(command.Run().AsTask());
+                commands.Add(command.Run());
             }
 
             var tasks = commands.Select(t => t).ToArray();

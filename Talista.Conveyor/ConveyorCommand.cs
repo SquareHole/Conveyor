@@ -19,7 +19,7 @@ namespace Talista.Conveyor
 
         public CancellationToken CancellationToken { get; set; }
 
-        public abstract ValueTask Run();
+        public abstract Task Run();
 
     }
 }

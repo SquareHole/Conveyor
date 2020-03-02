@@ -8,6 +8,6 @@ namespace Talista.Conveyor.Interfaces
         T Context { get; set; }
 
         CancellationToken CancellationToken { get; set; }
-        ValueTask Run();
+        Task Run();
     }
 }

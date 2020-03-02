@@ -16,8 +16,9 @@ namespace Talista.ConveyorTests.Setup
         }
         public override async Task Run()
         {
-            await Task.Delay(_delay).ContinueWith((a) =>
+            await Task.Delay(_delay, CancellationToken).ContinueWith((a) =>
             {
+                CancellationToken.ThrowIfCancellationRequested();
                 this.Context.Set("Identifier", this.Context.Identifier);
                 this.Context.TestResult.Append(_runResult);
             }, CancellationToken).ConfigureAwait(false);

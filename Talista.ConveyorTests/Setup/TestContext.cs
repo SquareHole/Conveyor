@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Talista.Conveyor;
 
 namespace Talista.ConveyorTests.Setup
@@ -8,6 +9,6 @@ namespace Talista.ConveyorTests.Setup
         public Guid Identifier { get; set; } = Guid.NewGuid();
         public int TestTimeout { get; set; } = 10;
 
-        public string TestResult { get; set; }
+        public StringBuilder TestResult { get; set; } = new StringBuilder();
     }
 }

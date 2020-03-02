@@ -20,7 +20,7 @@ namespace Talista.ConveyorTests.Setup
             {
                 Thread.Sleep(_delay);
                 this.Context.Set("Identifier", this.Context.Identifier);
-                this.Context.TestResult += _runResult;
+                this.Context.TestResult.Append(_runResult);
             }, CancellationToken).ConfigureAwait(false);
         }
     }

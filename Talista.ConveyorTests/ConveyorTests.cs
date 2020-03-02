@@ -44,7 +44,7 @@ namespace Talista.ConveyorTests
             await conveyor.Run();
 
             context.Get<Guid>("Identifier").ShouldBe(context.Identifier);
-            context.TestResult.ShouldBe("ABC");
+            context.TestResult.ToString().ShouldBe("ABC");
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace Talista.ConveyorTests
             await conveyor.Run(true);
 
             context.Get<Guid>("Identifier").ShouldBe(context.Identifier);
-            context.TestResult.ShouldBe("CBA");
+            context.TestResult.ToString().ShouldBe("CBA");
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace Talista.ConveyorTests
             await conveyor.Register(new TestCommand(runResult: "C", delay: 100));
 
             Should.Throw<TaskCanceledException>(async () => await conveyor.Run(true));
-            conveyor.Context.TestResult.ShouldBe("C");
+            conveyor.Context.TestResult.ToString().ShouldBe("C");
 
         }
 

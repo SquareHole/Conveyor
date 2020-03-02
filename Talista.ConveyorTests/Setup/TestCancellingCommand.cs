@@ -23,7 +23,7 @@ namespace Talista.ConveyorTests.Setup
                 _cancellationTokenSource.CancelAfter(_delay);
                 Thread.Sleep(_delay * 2);
                 this.Context.Set("Identifier", this.Context.Identifier);
-                this.Context.TestResult += _runResult;
+                this.Context.TestResult.Append(_runResult);
             }, CancellationToken);
         }
     }

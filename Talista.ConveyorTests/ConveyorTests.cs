@@ -55,9 +55,9 @@ namespace Talista.ConveyorTests
             var context = new TestContext();
             var conveyor = new TestConveyor(context, cts.Token);
 
-            await conveyor.Register(new TestCommand(runResult: "A", delay: 60));
-            await conveyor.Register(new TestCommand(runResult: "B", delay: 35));
-            await conveyor.Register(new TestCommand(runResult: "C", delay: 10));
+            await conveyor.Register(new TestCommand(runResult: "A", delay: 360));
+            await conveyor.Register(new TestCommand(runResult: "B", delay: 235));
+            await conveyor.Register(new TestCommand(runResult: "C", delay: 110));
 
             await conveyor.Run(true);
 

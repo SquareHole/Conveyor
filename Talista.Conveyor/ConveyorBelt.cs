@@ -68,7 +68,7 @@ namespace Talista.Conveyor
 
             _running = false;
         }
-        
+
         private async ValueTask RunInParallel()
         {
             if (_running)
@@ -77,7 +77,7 @@ namespace Talista.Conveyor
                 _logger.LogInformation($"Run was called on a running conveyor : {this.GetType().FullName}");
                 return;
             }
-            
+
             var commands = new List<Task>();
 
             _logger.LogDebug("Conveyor started running.");

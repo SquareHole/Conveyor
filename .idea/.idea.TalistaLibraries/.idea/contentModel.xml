@@ -12,6 +12,7 @@
     <e p="C:\Users\johanv\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_TalistaLibraries.-368509015.00" t="ExcludeRecursive" />
     <e p="C:\Users\johanv\AppData\Roaming\JetBrains\Rider2020.1\scratches" t="IncludeRecursive" />
     <e p="D:\johan\github\talista.conveyor" t="IncludeFlat">
+      <e p="ConveyorBelt" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="talista.conveyor" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

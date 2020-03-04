@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@master
         
       - name: Restore Packages
-        run: dotnet build -c Release -s https://api.nuget.org/v3/index.json
+        run: dotnet restore -s https://api.nuget.org/v3/index.json
         
       - name: Build solution
         run: dotnet build -c Release

@@ -26,11 +26,11 @@ jobs:
       - name: Restore Packages
         run: dotnet restore -s https://api.nuget.org/v3/index.json
         
-#      - name: Build solution
-#        run: dotnet build -c Release
+      - name: Build solution
+        run: dotnet build -c Release
         
- #     - name: Test solution
- #       run: dotnet test        
+      - name: Test solution
+        run: dotnet test        
 
   #    - name: Generate NuGet package
   #      run: dotnet pack -c Release --output out

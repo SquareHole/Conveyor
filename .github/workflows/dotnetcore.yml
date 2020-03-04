@@ -22,11 +22,9 @@ jobs:
 
       - name: Setup NuGet
         uses: warrenbuckley/Setup-Nuget@v1
-      - name: Setup NuGet Sources
-        run: nuget sources add -name "Nuget" -Source "https://api.nuget.org/v3/index.json"
         
       - name: Restore Packages
-        run: dotnet restore
+        run: dotnet restore -s https://api.nuget.org/
         
       - name: Build solution
         run: dotnet build -c Release

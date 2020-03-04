@@ -20,6 +20,9 @@ jobs:
 #        with:
 #          dotnet-version: '3.1.101' 
 
+      - name: Restore Packages
+        run: dotnet restore
+        
       - name: Build solution
         run: dotnet build -c Release
         

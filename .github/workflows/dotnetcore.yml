@@ -1,4 +1,4 @@
-name: Build Conveyor
+name: Build Talista.Conveyor
 
 on:
   push:
@@ -8,21 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Running the job 
+    name: Buidling on Ubuntu 
     steps:
 
-      - name: Checkout repository
+      - name: Checkout master branch
         uses: actions/checkout@master
-
-#  latest image has .NET already installed!
-#      - name: Setup .NET environment
-#        uses: actions/setup-dotnet@v1
-#        with:
-#          dotnet-version: '3.1.101' 
-
-#      - name: Setup NuGet
- #       uses: warrenbuckley/Setup-Nuget@v1
-        
+       
       - name: Restore Packages
         run: dotnet restore -s https://api.nuget.org/v3/index.json
         
@@ -32,14 +23,14 @@ jobs:
       - name: Test solution
         run: dotnet test        
 
-  #    - name: Generate NuGet package
-  #      run: dotnet pack -c Release --output out
+      - name: Generate NuGet package
+        run: dotnet pack -c Release --output out
 
    #   - name: Install NuGet client
    #     uses: warrenbuckley/Setup-Nuget@v1
 
-    #  - name: Add private GitHub registry to NuGet
-    #    run: nuget sources add -name "Github" -Source https://nuget.pkg.github.com/jvanrhyn/index.json -Username jvanrhyn -Password ${{ secrets.GITHUB_TOKEN }}
+      - name: Add private GitHub registry to NuGet
+        run: nuget sources add -name "Github" -Source https://nuget.pkg.github.com/jvanrhyn/index.json -Username jvanrhyn -Password ${{ secrets.GITHUB_TOKEN }}
 
-#      - name: Push generated package to GitHub registry
-#        run: nuget push out\*.nupkg -Source "GitHub" -SkipDuplicate
+      - name: Push generated package to GitHub registry
+        run: dotnet nuget push out\*.nupkg --source https://nuget.pkg.github.com/jvanrhyn/index.json -SkipDuplicate

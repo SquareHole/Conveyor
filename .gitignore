@@ -1,3 +1,5 @@
 bin/
 obj/
 /packages/
+/.vs/TalistaLibraries/v16/TestStore/0
+/.vs/TalistaLibraries/v16/.suo

@@ -4,7 +4,7 @@ using Talista.Conveyor.Interfaces;
 
 namespace Talista.Conveyor
 {
-    public abstract class ConveyorContext : IConveyorContext
+	public abstract class ConveyorContext : IConveyorContext
     {
         private readonly ILogger<ConveyorContext> _logger;
         private readonly Dictionary<string, object> _contextData;

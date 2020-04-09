@@ -1,10 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talista.Conveyor", "Talista.Conveyor\Talista.Conveyor.csproj", "{759A1898-53D7-4FB9-94E6-E98CFE9084E5}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30001.183
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Talista.Conveyor", "Talista.Conveyor\Talista.Conveyor.csproj", "{759A1898-53D7-4FB9-94E6-E98CFE9084E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talista.ConveyorTests", "Talista.ConveyorTests\Talista.ConveyorTests.csproj", "{E351B60C-9D45-45EF-BB2E-498BA1F45F04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Talista.ConveyorTests", "Talista.ConveyorTests\Talista.ConveyorTests.csproj", "{E351B60C-9D45-45EF-BB2E-498BA1F45F04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConveyorBelt", "ConveyorBelt", "{B5F4D56F-3BA3-41AD-8DAD-FEB4E774A086}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0734B58F-65B7-4D29-B083-80039D4B7E16}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +31,14 @@ Global
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{759A1898-53D7-4FB9-94E6-E98CFE9084E5} = {B5F4D56F-3BA3-41AD-8DAD-FEB4E774A086}
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04} = {B5F4D56F-3BA3-41AD-8DAD-FEB4E774A086}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E142F4C1-5426-4B7E-A46A-0E191838BB28}
 	EndGlobalSection
 EndGlobal

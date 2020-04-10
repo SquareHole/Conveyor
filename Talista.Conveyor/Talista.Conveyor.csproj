@@ -1,13 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.2-alpha</PackageVersion>
+        <PackageVersion>1.0.3-alpha</PackageVersion>
         <Title>Talista Conveyor</Title>
         <RepositoryUrl>https://github.com/jvanrhyn/talista.conveyor</RepositoryUrl>
         <Authors>Johan van Rhyn</Authors>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
+        <PackageIcon>manufacture.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,9 +22,5 @@
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
-      <None Include="manufacture.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-      </None>
-    </ItemGroup>
+     </ItemGroup>
 </Project>

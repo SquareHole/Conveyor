@@ -7,7 +7,6 @@
         <Title>Talista Conveyor</Title>
         <RepositoryUrl>https://github.com/jvanrhyn/talista.conveyor</RepositoryUrl>
         <Authors>Johan van Rhyn</Authors>
-        <PackageIcon>manufacture.png</PackageIcon>
         <Version>1.0.2</Version>
     </PropertyGroup>
 

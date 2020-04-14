@@ -1,6 +1,8 @@
 # Conveyor Belt
 An attempt at a Conveyorbelt similar to NChain. This iomplementation uses System.Threading,Channel to create an Unbounded channel.
 
+![NuGet Generation](https://github.com/Talista/Conveyor/workflows/NuGet%20Generation/badge.svg)
+
 ```c#
 var channel = Channel.CreateUnbounded<IConveyorCommand<T>>();
 ```

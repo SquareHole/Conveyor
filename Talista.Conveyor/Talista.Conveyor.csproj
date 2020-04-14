@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageVersion>1.0.4-alpha</PackageVersion>
         <Title>Talista Conveyor</Title>
-        <RepositoryUrl>https://github.com/jvanrhyn/talista.conveyor</RepositoryUrl>
+        <RepositoryUrl>https://github.com/talista/conveyor</RepositoryUrl>
         <Authors>Johan van Rhyn</Authors>
         <Version>1.0.4</Version>
         <PackageIcon>manufacture.png</PackageIcon>

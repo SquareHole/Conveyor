@@ -1,0 +1,23 @@
+name: DevBranch CI Build
+
+on:
+    push:
+        branches:
+            - develop
+
+jobs:
+    build:
+        runs-on: windows-latest
+        name: Update NuGet
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@develop
+
+            - name: Restore Packages
+              run: dotnet restore -s https://api.nuget.org/v3/index.json
+
+            - name: Build solution
+              run: dotnet build -c Release
+
+            - name: Test Project
+            - run: dotnet test

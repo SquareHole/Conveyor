@@ -26,7 +26,7 @@ jobs:
               uses: warrenbuckley/Setup-Nuget@v1
 
             - name: Add private GitHub registry to NuGet
-              run: dotnet nuget add source https://nuget.pkg.github.com/talista/index.json -n "Github" -u jvanrhyn -p ${{ secrets.GITHUB_TOKEN }}
+              run: nuget sources add -name "GitHub" -Source https://nuget.pkg.github.com/talista/index.json -Username jvanrhyn -Password ${{ secrets.GITHUB_TOKEN }}
 
             - name: Push generated package to GitHub registry
-              run: dotnet nuget push out\*.nupkg --skip-duplicate --source "GitHub" -k ${{ secrets.GITHUB_TOKEN }}
+              run: nuget push out\*.nupkg -Source "GitHub" -SkipDuplicate

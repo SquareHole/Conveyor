@@ -19,5 +19,5 @@ jobs:
             - name: Build solution
               run: dotnet build -c Release
 
-            - name: Generate NuGet package
+            - name: Run unit tests
               run: dotnet test -c Release

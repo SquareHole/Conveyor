@@ -11,7 +11,7 @@ jobs:
         name: Develop CI Build
         steps:
             - name: Checkout repository
-              uses: actions/checkout@develop
+              uses: actions/checkout@master
 
             - name: Restore Packages
               run: dotnet restore -s https://api.nuget.org/v3/index.json

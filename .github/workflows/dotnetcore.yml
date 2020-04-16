@@ -1,33 +1,32 @@
 name: NuGet Generation
 
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
 
 jobs:
-  build:
-    runs-on: windows-latest
-    name: Update NuGet 
-    steps:
+    build:
+        runs-on: windows-latest
+        name: Update NuGet
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@master
 
-      - name: Checkout repository
-        uses: actions/checkout@master
-        
-      - name: Restore Packages
-        run: dotnet restore -s https://api.nuget.org/v3/index.json
-        
-      - name: Build solution
-        run: dotnet build -c Release
+            - name: Restore Packages
+              run: dotnet restore -s https://api.nuget.org/v3/index.json
 
-      - name: Generate NuGet package
-        run: dotnet pack -c Release --output out
+            - name: Build solution
+              run: dotnet build -c Release
 
-      - name: Install NuGet client
-        uses: warrenbuckley/Setup-Nuget@v1
+            - name: Generate NuGet package
+              run: dotnet pack -c Release --output out
 
-      - name: Add private GitHub registry to NuGet
-        run: dotnet nuget add source https://nuget.pkg.github.com/talista/index.json -n "Github" -u jvanrhyn -p ${{ secrets.GITHUB_TOKEN }}
+            - name: Install NuGet client
+              uses: warrenbuckley/Setup-Nuget@v1
 
-      - name: Push generated package to GitHub registry
-        run: dotnet nuget push out\*.nupkg --skip-duplicate --source "GitHub" -k ${{ secrets.GITHUB_TOKEN }}
+            - name: Add private GitHub registry to NuGet
+              run: dotnet nuget add source https://nuget.pkg.github.com/talista/index.json -n "Github"
+
+            - name: Push generated package to GitHub registry
+              run: dotnet nuget push out\*.nupkg --skip-duplicate --source "GitHub" -k ${{ secrets.GITHUB_TOKEN }}

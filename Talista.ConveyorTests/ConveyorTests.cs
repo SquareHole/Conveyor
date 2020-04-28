@@ -32,7 +32,7 @@ namespace Talista.ConveyorTests
         [Test]
         public async Task Can_execute_conveyor_belt()
         {
-            CancellationTokenSource cts = new CancellationTokenSource();
+            var cts = new CancellationTokenSource();
 
             var context = new TestContext();
             var conveyor = new TestConveyor(context, cts.Token);
@@ -50,7 +50,7 @@ namespace Talista.ConveyorTests
         [Test]
         public async Task Can_Execute_InParallel()
         {
-            CancellationTokenSource cts = new CancellationTokenSource();
+            var cts = new CancellationTokenSource();
 
             var context = new TestContext();
             var conveyor = new TestConveyor(context, cts.Token);
@@ -68,7 +68,7 @@ namespace Talista.ConveyorTests
         [Test]
         public async Task Command_can_cancel_parallel_execution()
         {
-            CancellationTokenSource cts = new CancellationTokenSource();
+            var cts = new CancellationTokenSource();
 
             var context = new TestContext();
             var conveyor = new TestConveyor(context, cts.Token);
@@ -85,7 +85,7 @@ namespace Talista.ConveyorTests
         [Test]
         public async Task Command_can_cancel_sequential_execution()
         {
-            CancellationTokenSource cts = new CancellationTokenSource();
+            var cts = new CancellationTokenSource();
 
             var context = new TestContext();
             var conveyor = new TestConveyor(context, cts.Token);
@@ -101,7 +101,7 @@ namespace Talista.ConveyorTests
         [Test]
         public async Task Conveyor_can_be_cancelled_with_token()
         {
-            CancellationTokenSource cts = new CancellationTokenSource(20);
+            var cts = new CancellationTokenSource(20);
 
             var context = new TestContext() { TestTimeout = 50 };
             var command = new TestCommand(delay: 150);

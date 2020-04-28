@@ -21,7 +21,7 @@ namespace Talista.Conveyor
 
         public T Get<T>(string key, bool throwWhenMissing = false)
         {
-            if (_contextData.TryGetValue(key, out object value))
+            if (_contextData.TryGetValue(key, out var value))
             {
                 return (T)value;
             }

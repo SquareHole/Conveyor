@@ -31,7 +31,7 @@ namespace Talista.Conveyor
 
         public async Task Register(IConveyorCommand<T> command)
         {
-            command.Context = this.Context;
+            command.Context = Context;
             command.CancellationToken = _cancellationToken;
             await _writer.WriteAsync(command, _cancellationToken).ConfigureAwait(false);
         }
@@ -53,7 +53,7 @@ namespace Talista.Conveyor
             if (_running)
             {
                 //The conveyor belt is already running, log and exit
-                _logger.LogInformation($"Run was called on a running conveyor : {this.GetType().FullName}");
+                _logger.LogInformation($"Run was called on a running conveyor : {GetType().FullName}");
                 return;
             }
 
@@ -74,7 +74,7 @@ namespace Talista.Conveyor
             if (_running)
             {
                 //The conveyor belt is already running, log and exit
-                _logger.LogInformation($"Run was called on a running conveyor : {this.GetType().FullName}");
+                _logger.LogInformation($"Run was called on a running conveyor : {GetType().FullName}");
                 return;
             }
 

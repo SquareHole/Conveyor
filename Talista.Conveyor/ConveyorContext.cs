@@ -10,14 +10,11 @@ namespace Talista.Conveyor
         private readonly Dictionary<string, object> _contextData;
         protected ConveyorContext(ILogger<ConveyorContext> logger = default)
         {
-            _logger = LoggerFactory.Create(b => b.AddConsole())
+            _logger = logger ?? LoggerFactory.Create(b => b.AddConsole())
                 .CreateLogger<ConveyorContext>();
             _contextData = new Dictionary<string, object>();
         }
-        public void Set(string key, object value)
-        {
-            _contextData.TryAdd(key, value);
-        }
+        public void Set(string key, object value) => _contextData.TryAdd(key, value);
 
         public T Get<T>(string key, bool throwWhenMissing = false)
         {
@@ -28,6 +25,7 @@ namespace Talista.Conveyor
 
             if (throwWhenMissing)
             {
+	            _logger.LogError("Could not find value for key : {key}", key);
                 throw new MissingExpectedContextDataException(key);
             }
             return default;

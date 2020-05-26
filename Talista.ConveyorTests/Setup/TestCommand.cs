@@ -9,7 +9,7 @@ namespace Talista.ConveyorTests.Setup
         private readonly int _delay;
         private readonly string _runResult;
 
-        public TestCommand(int delay = 0, string runResult = "")
+        public TestCommand(int delay = 0, string runResult = "") : base()
         {
             _delay = delay;
             _runResult = runResult;
@@ -19,8 +19,8 @@ namespace Talista.ConveyorTests.Setup
             await Task.Delay(_delay, CancellationToken).ContinueWith((a) =>
             {
                 CancellationToken.ThrowIfCancellationRequested();
-                this.Context.Set("Identifier", this.Context.Identifier);
-                this.Context.TestResult.Append(_runResult);
+                Context.Set("Identifier", Context.Identifier);
+                Context.TestResult.Append(_runResult);
             }, CancellationToken).ConfigureAwait(false);
         }
     }

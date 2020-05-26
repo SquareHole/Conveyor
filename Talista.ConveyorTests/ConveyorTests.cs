@@ -94,7 +94,7 @@ namespace Talista.ConveyorTests
             await conveyor.Register(new TestCancellingCommand(cts, runResult: "B", delay: 30));
             await conveyor.Register(new TestCommand(runResult: "C", delay: 10));
 
-            Should.Throw<TaskCanceledException>(async () => await conveyor.Run(false));
+            Should.Throw<TaskCanceledException>(async () => await conveyor.Run());
         }
 
 

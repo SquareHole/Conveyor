@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>1.0.5-alpha</PackageVersion>
+    <PackageVersion>1.0.6-alpha</PackageVersion>
     <Title>Talista Conveyor</Title>
     <RepositoryUrl>https://github.com/talista/conveyor</RepositoryUrl>
     <Authors>Talista</Authors>

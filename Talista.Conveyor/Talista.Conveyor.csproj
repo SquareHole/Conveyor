@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>1.0.5-alpha</PackageVersion>
+    <PackageVersion>1.0.6-alpha</PackageVersion>
     <Title>Talista Conveyor</Title>
     <RepositoryUrl>https://github.com/talista/conveyor</RepositoryUrl>
     <Authors>Talista</Authors>
@@ -12,8 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.7" />
     <PackageReference Include="Shouldly" Version="3.0.2" />
   </ItemGroup>
 

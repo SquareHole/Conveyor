@@ -11,7 +11,7 @@ namespace Talista.ConveyorTests.Setup
         private readonly string _runResult;
 
         public TestCancellingCommand(CancellationTokenSource cancellationTokenSource, int delay = 0,
-            string runResult = "") : base()
+            string runResult = "")
         {
             _cancellationTokenSource = cancellationTokenSource;
             _delay = delay;
@@ -20,7 +20,7 @@ namespace Talista.ConveyorTests.Setup
 
         public override async Task Run()
         {
-            await Task.Delay(_delay, _cancellationTokenSource.Token).ContinueWith((tc) =>
+            await Task.Delay(_delay, _cancellationTokenSource.Token).ContinueWith(tc =>
             {
                 _cancellationTokenSource.Cancel();
                 _cancellationTokenSource.Token.ThrowIfCancellationRequested();

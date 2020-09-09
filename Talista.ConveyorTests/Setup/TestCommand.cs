@@ -1,4 +1,3 @@
-using System.Threading;
 using System.Threading.Tasks;
 using Talista.Conveyor;
 
@@ -9,14 +8,14 @@ namespace Talista.ConveyorTests.Setup
         private readonly int _delay;
         private readonly string _runResult;
 
-        public TestCommand(int delay = 0, string runResult = "") : base()
+        public TestCommand(int delay = 0, string runResult = "")
         {
             _delay = delay;
             _runResult = runResult;
         }
         public override async Task Run()
         {
-            await Task.Delay(_delay, CancellationToken).ContinueWith((a) =>
+            await Task.Delay(_delay, CancellationToken).ContinueWith(a =>
             {
                 CancellationToken.ThrowIfCancellationRequested();
                 Context.Set("Identifier", Context.Identifier);

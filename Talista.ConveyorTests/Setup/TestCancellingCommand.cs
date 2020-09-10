@@ -18,15 +18,13 @@ namespace Talista.ConveyorTests.Setup
             _runResult = runResult;
         }
 
-        public override async Task Run()
-        {
-            await Task.Delay(_delay, _cancellationTokenSource.Token).ContinueWith(tc =>
-            {
-                _cancellationTokenSource.Cancel();
-                _cancellationTokenSource.Token.ThrowIfCancellationRequested();
-                Context.Set("Identifier", Context.Identifier);
-                Context.TestResult.Append(_runResult);
-            }, CancellationToken);
-        }
+        public override async Task Run() =>
+	        await Task.Delay(_delay, _cancellationTokenSource.Token).ContinueWith(tc =>
+	        {
+		        _cancellationTokenSource.Cancel();
+		        _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+		        Context.Set("Identifier", Context.Identifier);
+		        Context.TestResult.Append(_runResult);
+	        }, CancellationToken);
     }
 }

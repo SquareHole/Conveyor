@@ -103,9 +103,9 @@ namespace Talista.ConveyorTests
         {
             var cts = new CancellationTokenSource(20);
 
-            var context = new TestContext() { TestTimeout = 50 };
-            var command = new TestCommand(delay: 150);
-            var command2 = new TestCommand(delay: 150);
+            var context = new TestContext { TestTimeout = 50 };
+            var command = new TestCommand(150);
+            var command2 = new TestCommand(150);
             var conveyor = new TestConveyor(context, cts.Token);
 
             await conveyor.Register(command);

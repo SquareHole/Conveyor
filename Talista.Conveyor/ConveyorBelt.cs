@@ -18,8 +18,9 @@ namespace Talista.Conveyor
 
         protected ConveyorBelt(T context, CancellationToken cancellationToken = default)
         {
-            _cancellationToken = cancellationToken;
+	        _cancellationToken = cancellationToken;
             Context = context;
+            context.Token = cancellationToken;
             var channel = Channel.CreateUnbounded<IConveyorCommand<T>>();
             _reader = channel.Reader;
             _writer = channel.Writer;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using Microsoft.Extensions.Logging;
 using Talista.Conveyor.Interfaces;
 
@@ -30,5 +31,7 @@ namespace Talista.Conveyor
             }
             return default;
         }
+
+        public CancellationToken Token { get; set; }
     }
 }

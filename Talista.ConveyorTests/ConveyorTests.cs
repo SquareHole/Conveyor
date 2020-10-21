@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Shouldly;
 using Talista.Conveyor;
@@ -11,7 +12,16 @@ namespace Talista.ConveyorTests
 {
     public class ConveyorTests
     {
-        [Test]
+	    private ILoggerFactory _loggerFactory;
+
+	    [SetUp]
+	    public void SetUp() => _loggerFactory = LoggerFactory.Create(config =>
+	    {
+		    config.SetMinimumLevel(LogLevel.Trace);
+		    config.AddConsole();
+	    });
+
+	    [Test]
         public void CanCreateContextInstance()
         {
             var context = new TestContext();
@@ -33,13 +43,14 @@ namespace Talista.ConveyorTests
         public async Task Can_execute_conveyor_belt()
         {
             var cts = new CancellationTokenSource();
+            var logger = _loggerFactory.CreateLogger(typeof(TestConveyor));
 
             var context = new TestContext();
-            var conveyor = new TestConveyor(context, cts.Token);
+            var conveyor = new TestConveyor(context, logger,  cts.Token);
 
-            await conveyor.Register(new TestCommand(runResult: "A"));
-            await conveyor.Register(new TestCommand(runResult: "B"));
-            await conveyor.Register(new TestCommand(runResult: "C"));
+            await conveyor.Register(new TestCommand(runResult: "A", logger: logger));
+            await conveyor.Register(new TestCommand(runResult: "B", logger: logger));
+            await conveyor.Register(new TestCommand(runResult: "C", logger: logger));
 
             await conveyor.Run();
 
@@ -51,13 +62,14 @@ namespace Talista.ConveyorTests
         public async Task Can_Execute_InParallel()
         {
             var cts = new CancellationTokenSource();
+            var logger = _loggerFactory.CreateLogger(typeof(TestConveyor));
 
             var context = new TestContext();
-            var conveyor = new TestConveyor(context, cts.Token);
+            var conveyor = new TestConveyor(context, logger, cts.Token);
 
-            await conveyor.Register(new TestCommand(runResult: "A", delay: 660));
-            await conveyor.Register(new TestCommand(runResult: "B", delay: 435));
-            await conveyor.Register(new TestCommand(runResult: "C", delay: 110));
+            await conveyor.Register(new TestCommand(runResult: "A", delay: 660, logger: logger));
+            await conveyor.Register(new TestCommand(runResult: "B", delay: 435, logger: logger));
+            await conveyor.Register(new TestCommand(runResult: "C", delay: 110, logger: logger));
 
             await conveyor.Run(true);
 
@@ -69,13 +81,14 @@ namespace Talista.ConveyorTests
         public async Task Command_can_cancel_parallel_execution()
         {
             var cts = new CancellationTokenSource();
+            var logger = _loggerFactory.CreateLogger(typeof(TestConveyor));
 
             var context = new TestContext();
-            var conveyor = new TestConveyor(context, cts.Token);
+            var conveyor = new TestConveyor(context, logger, cts.Token);
 
-            await conveyor.Register(new TestCommand(runResult: "A", delay: 200));
-            await conveyor.Register(new TestCancellingCommand(cts, runResult: "B", delay: 150));
-            await conveyor.Register(new TestCommand(runResult: "C", delay: 100));
+            await conveyor.Register(new TestCommand(runResult: "A", delay: 200, logger: logger));
+            await conveyor.Register(new TestCancellingCommand(cts, runResult: "B", delay: 150, logger: logger));
+            await conveyor.Register(new TestCommand(runResult: "C", delay: 100, logger: logger));
 
             Should.Throw<TaskCanceledException>(async () => await conveyor.Run(true));
             conveyor.Context.TestResult.ToString().ShouldBe("C");
@@ -86,13 +99,14 @@ namespace Talista.ConveyorTests
         public async Task Command_can_cancel_sequential_execution()
         {
             var cts = new CancellationTokenSource();
+            var logger = _loggerFactory.CreateLogger(typeof(TestConveyor));
 
             var context = new TestContext();
-            var conveyor = new TestConveyor(context, cts.Token);
+            var conveyor = new TestConveyor(context, logger, cts.Token);
 
-            await conveyor.Register(new TestCommand(runResult: "A", delay: 50));
-            await conveyor.Register(new TestCancellingCommand(cts, runResult: "B", delay: 30));
-            await conveyor.Register(new TestCommand(runResult: "C", delay: 10));
+            await conveyor.Register(new TestCommand(runResult: "A", delay: 50, logger: logger));
+            await conveyor.Register(new TestCancellingCommand(cts, runResult: "B", delay: 30, logger: logger));
+            await conveyor.Register(new TestCommand(runResult: "C", delay: 10, logger: logger));
 
             Should.Throw<TaskCanceledException>(async () => await conveyor.Run());
         }
@@ -102,11 +116,12 @@ namespace Talista.ConveyorTests
         public async Task Conveyor_can_be_cancelled_with_token()
         {
             var cts = new CancellationTokenSource(20);
+            var logger = _loggerFactory.CreateLogger(typeof(TestConveyor));
 
             var context = new TestContext { TestTimeout = 50 };
             var command = new TestCommand(150);
             var command2 = new TestCommand(150);
-            var conveyor = new TestConveyor(context, cts.Token);
+            var conveyor = new TestConveyor(context, logger, cts.Token);
 
             await conveyor.Register(command);
             await conveyor.Register(command2);

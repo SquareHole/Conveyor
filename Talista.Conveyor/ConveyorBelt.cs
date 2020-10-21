@@ -13,10 +13,10 @@ namespace Talista.Conveyor
         private readonly CancellationToken _cancellationToken;
         private readonly ChannelReader<IConveyorCommand<T>> _reader;
         private readonly ChannelWriter<IConveyorCommand<T>> _writer;
-        private readonly ILogger<ConveyorBelt<T>> _logger;
+        private readonly ILogger _logger;
         private  bool _running;
 
-        protected ConveyorBelt(T context, CancellationToken cancellationToken = default)
+        protected ConveyorBelt(T context, ILogger logger, CancellationToken cancellationToken = default)
         {
 	        _cancellationToken = cancellationToken;
             Context = context;
@@ -24,8 +24,7 @@ namespace Talista.Conveyor
             var channel = Channel.CreateUnbounded<IConveyorCommand<T>>();
             _reader = channel.Reader;
             _writer = channel.Writer;
-            _logger = LoggerFactory.Create(b => b.AddConsole())
-                .CreateLogger<ConveyorBelt<T>>();
+            _logger = logger;
         }
 
         public T Context { get; }

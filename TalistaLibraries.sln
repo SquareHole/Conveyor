@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExtensionMethods", "ExtensionMethods", "{750F78E3-448D-4896-9824-F592A71DF81E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talista.Extensions", "Talista.Extensions\Talista.Extensions.csproj", "{0DC50AD6-8F45-4D1C-AD35-723B27D27C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talista.Extensions.Tests", "Talista.Extensions.Tests\Talista.Extensions.Tests.csproj", "{0BB1A442-6634-4E79-996F-1C1BD362E595}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +37,14 @@ Global
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC50AD6-8F45-4D1C-AD35-723B27D27C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC50AD6-8F45-4D1C-AD35-723B27D27C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC50AD6-8F45-4D1C-AD35-723B27D27C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC50AD6-8F45-4D1C-AD35-723B27D27C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB1A442-6634-4E79-996F-1C1BD362E595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB1A442-6634-4E79-996F-1C1BD362E595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB1A442-6634-4E79-996F-1C1BD362E595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB1A442-6634-4E79-996F-1C1BD362E595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +52,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{759A1898-53D7-4FB9-94E6-E98CFE9084E5} = {B5F4D56F-3BA3-41AD-8DAD-FEB4E774A086}
 		{E351B60C-9D45-45EF-BB2E-498BA1F45F04} = {B5F4D56F-3BA3-41AD-8DAD-FEB4E774A086}
+		{0DC50AD6-8F45-4D1C-AD35-723B27D27C70} = {750F78E3-448D-4896-9824-F592A71DF81E}
+		{0BB1A442-6634-4E79-996F-1C1BD362E595} = {750F78E3-448D-4896-9824-F592A71DF81E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E142F4C1-5426-4B7E-A46A-0E191838BB28}

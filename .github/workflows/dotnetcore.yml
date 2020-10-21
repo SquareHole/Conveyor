@@ -11,7 +11,7 @@ jobs:
         name: Update NuGet
         steps:
             - name: Checkout repository
-              uses: actions/checkout@master
+              uses: actions/checkout@main
 
             - name: Restore Packages
               run: dotnet restore -s https://api.nuget.org/v3/index.json

@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackageVersion>1.0.0-alpha</PackageVersion>
     <Title>Talista.Extensions</Title>
     <Description>Extension method for indexing IEnumerable collections</Description>
     <Copyright>Talista</Copyright>
     <RepositoryUrl>https://github.com/talista/conveyor</RepositoryUrl>
+    <LangVersion>9</LangVersion>
   </PropertyGroup>
 
 </Project>

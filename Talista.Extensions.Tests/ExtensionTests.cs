@@ -1,10 +1,9 @@
-using System.Collections.Generic;
 using NUnit.Framework;
 using Shouldly;
 
 namespace Talista.Extensions.Tests
 {
-    public class ExtensionTests
+	public class ExtensionTests
     {
         [SetUp]
         public void Setup()

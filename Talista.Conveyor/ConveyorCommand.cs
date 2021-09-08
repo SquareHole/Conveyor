@@ -1,10 +1,8 @@
-using System.Threading;
-using System.Threading.Tasks;
 using Talista.Conveyor.Interfaces;
 
 namespace Talista.Conveyor
 {
-    public abstract class ConveyorCommand<T> : IConveyorCommand<T> where T : IConveyorContext
+	public abstract class ConveyorCommand<T> : IConveyorCommand<T> where T : IConveyorContext
     {
 	    public T Context { get; set; }
 

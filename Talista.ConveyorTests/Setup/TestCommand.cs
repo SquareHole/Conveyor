@@ -1,10 +1,9 @@
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Talista.Conveyor;
 
 namespace Talista.ConveyorTests.Setup
 {
-    class TestCommand : ConveyorCommand<TestContext>
+	class TestCommand : ConveyorCommand<TestContext>
     {
         private readonly int _delay;
         private readonly string _runResult;

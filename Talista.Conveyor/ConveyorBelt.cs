@@ -1,14 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using System.Threading.Channels;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Talista.Conveyor.Interfaces;
 
 namespace Talista.Conveyor
 {
-    public abstract class ConveyorBelt<T> : IConveyorBelt<T> where T : IConveyorContext
+	public abstract class ConveyorBelt<T> : IConveyorBelt<T> where T : IConveyorContext
     {
         private readonly CancellationToken _cancellationToken;
         private readonly ChannelReader<IConveyorCommand<T>> _reader;
@@ -52,8 +48,8 @@ namespace Talista.Conveyor
         {
             if (_running)
             {
-                //The conveyor belt is already running, log and exit
-                _logger.LogInformation($"Run was called on a running conveyor : {GetType().FullName}");
+				//The conveyor belt is already running, log and exit
+				_logger.LogInformation("Run was called on a running conveyor : {name}", GetType().FullName);
                 return;
             }
 
@@ -74,7 +70,7 @@ namespace Talista.Conveyor
             if (_running)
             {
                 //The conveyor belt is already running, log and exit
-                _logger.LogInformation($"Run was called on a running conveyor : {GetType().FullName}");
+                _logger.LogInformation("Run was called on a running conveyor : {name}", GetType().FullName);
                 return;
             }
 

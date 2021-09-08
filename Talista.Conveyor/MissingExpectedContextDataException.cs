@@ -1,9 +1,8 @@
-using System;
 using System.Runtime.Serialization;
 
 namespace Talista.Conveyor
 {
-    [Serializable]
+	[Serializable]
     public class MissingExpectedContextDataException : Exception
     {
         public MissingExpectedContextDataException()

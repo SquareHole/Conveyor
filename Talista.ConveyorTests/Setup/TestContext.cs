@@ -1,11 +1,10 @@
-using System;
 using System.Text;
 using Microsoft.Extensions.Logging;
 using Talista.Conveyor;
 
 namespace Talista.ConveyorTests.Setup
 {
-    class TestContext : ConveyorContext
+	class TestContext : ConveyorContext
     {
 		public TestContext(ILogger<TestContext> logger = default) : base(logger)
 		{

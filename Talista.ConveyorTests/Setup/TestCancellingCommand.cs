@@ -1,11 +1,9 @@
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Talista.Conveyor;
 
 namespace Talista.ConveyorTests.Setup
 {
-    class TestCancellingCommand : ConveyorCommand<TestContext>
+	class TestCancellingCommand : ConveyorCommand<TestContext>
     {
         private readonly CancellationTokenSource _cancellationTokenSource;
         private readonly int _delay;

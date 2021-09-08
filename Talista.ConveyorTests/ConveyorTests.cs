@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Shouldly;
@@ -10,7 +7,7 @@ using TestContext = Talista.ConveyorTests.Setup.TestContext;
 
 namespace Talista.ConveyorTests
 {
-    public class ConveyorTests
+	public class ConveyorTests
     {
 	    private ILoggerFactory _loggerFactory;
 

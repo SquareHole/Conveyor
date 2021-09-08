@@ -1,10 +1,8 @@
 ﻿// Based on the post https://khalidabuhakmeh.com/implement-kotlins-withindex-in-csharp
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Talista.Extensions
 {
-    public static class EnumerableExtensions
+	public static class EnumerableExtensions
     {
 	    /// <summary>
 	    /// Get an indexed enumerable tuple(int, T) for the source list

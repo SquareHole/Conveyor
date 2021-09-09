@@ -1,23 +1,25 @@
-name: Develop CI Build
+name: .NET
 
 on:
-    push:
-        branches:
-            - develop
+  push:
+    branches: [ main, upgrade_net6 ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-    build:
-        runs-on: windows-latest
-        name: Develop CI Build
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@master
+  build:
 
-            - name: Restore Packages
-              run: dotnet restore -s https://api.nuget.org/v3/index.json
+    runs-on: ubuntu-latest
 
-            - name: Build solution
-              run: dotnet build -c Release
-
-            - name: Run unit tests
-              run: dotnet test -c Release
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      #with:
+      #  dotnet-version: 6.0.100-rc.1.21423.6
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal

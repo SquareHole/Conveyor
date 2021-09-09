@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Generate NuGet package
-      run: dotnet pack -c Release --output out
+      run: dotnet pack --no-build --output out
     - name: Install NuGet client
       uses: warrenbuckley/Setup-Nuget@v1
     - name: Add private GitHub registry to NuGet

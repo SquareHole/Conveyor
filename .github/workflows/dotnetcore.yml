@@ -39,5 +39,5 @@ jobs:
         TAG_COMMIT: true
         TAG_FORMAT: v*
         NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
-        NUGET_SOURCE: https://nuget.pkg.github.com/talista
+        NUGET_SOURCE: https://nuget.pkg.github.com/talista/index.json
         INCLUDE_SYMBOLS: true      
